@@ -1,4 +1,5 @@
 const express =require ("express");
+const cors = require('cors')
 const { Connection } = require("./config/db");
 const { logIn } = require("./Routes/logIn.route");
 const { SignUp } = require("./Routes/signUp.route");
@@ -6,6 +7,7 @@ const { MyTodos } = require("./Routes/Todo.route");
 require("dotenv").config();
 const app= express();
 const PORT=process.env.PORT || 8500
+app.use(cors());
 app.use(express.json());
 
 app.get ("/",(req,res)=>{
